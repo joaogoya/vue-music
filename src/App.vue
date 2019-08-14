@@ -11,7 +11,6 @@ import Cards from './components/Cards.vue'
 import Charts from './components/Charts.vue'
 import List from './components/List.vue'
 
-
 export default {
   name: "app",
   components: {
@@ -23,6 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./styles/global.scss";
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

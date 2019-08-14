@@ -1,5 +1,12 @@
 <template>
-  <div :load="getCards()">{{ msg }}</div>
+  <div :load="getCards()">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6">aaaaa</div>
+              <div class="col-sm-6">bbbbbb</div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -22,8 +29,5 @@ export default {
 };
 </script>
 
-<style scoped>
-div {
-  margin: 0%;
-}
+<style lang="scss" scoped>
 </style>
