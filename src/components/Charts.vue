@@ -13,14 +13,13 @@ export default {
   },
   methods: {
     getCharts() {
-      return APIService.getCharts().then(reponse => {
+      return APIService.getCharts().then(response => {
         /* eslint-disable no-console */
-        console.table(reponse);
+        console.table(response);
       });
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
