@@ -12,14 +12,12 @@
         />
       </div>
     </div>
-
     <div class="container">
       <h2 class="title">Overview</h2>
       <Cards></Cards>
       <charts></charts>
       <List></List>
     </div>
-
     <div id="highlight-bar">
       <div class="container">
         <img src="./assets/img/pm-logo.png" alt="Logo da PM" class="icon-logo" />
@@ -44,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/bootstrap-vue/src/index.scss';
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
 @import "./styles/global.scss";
 </style>

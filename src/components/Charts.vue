@@ -1,5 +1,5 @@
 <template>
-  <div :load="getCharts()">{{ msg }}</div>
+  <div>{{ msg }}</div>
 </template>
 
 <script>
@@ -18,6 +18,9 @@ export default {
         console.table(response);
       });
     }
+  },
+  created() {
+    this.getCharts();
   }
 };
 </script>
