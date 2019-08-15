@@ -60,14 +60,12 @@ export default {
   methods: {
     getCards() {
       return APIService.getCards().then(response => {
-        /* eslint-disable no-console */
         this.cardOne.musicHours = response.cards.hours_music.hours;
         this.cardOne.percent_diference = response.cards.hours_music.percent_diference;
         this.cardTwo.bands = response.cards.quantity_bands.bands;
         this.cardTwo.percent_diference = response.cards.quantity_bands.percent_diference;
         this.cardThree.losts = response.cards.lost_artists.losts;
-        this.cardThree.percent_diference = response.cards.lost_artists.percent_diference      
-        console.log(response);
+        this.cardThree.percent_diference = response.cards.lost_artists.percent_diference  
       });
     }
   }
