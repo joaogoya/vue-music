@@ -1,91 +1,139 @@
 $color-highlight: #232642;
 
-body{
-    background: #ebebeb;
-    font-family: 'Montserrat', sans-serif;
+body {
+  background: #ebebeb;
+  font-family: "Montserrat", sans-serif;
 }
-.container{
-    width: 100vw;
+.container {
+  width: 100vw;
 }
-.container-center{
-    width: 1000px;
+.container-center {
+  width: 1000px;
 }
 #app {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-white {
+  width: 100%;
+  min-height: 300px;
+  border-radius: 10px;
+  padding: 18px 30px;
+  margin-top: 20px;
+}
+
+#highlight-bar {
+  height: 70px;
+  background-color: $color-highlight;
+  padding: 15px;
+  .icon-logo {
+    float: left;
+  }
+  .icon-hangloose {
+    float: right;
+  }
+}
+
+.title {
+  font-size: 26px;
+  margin: 30px 0px;
+}
+
+.card {
+  min-height: 188px;
+  border-radius: 10px;
+  padding: 18px 30px;
+  .card-title {
+    font-size: 14px;
+    img {
+      margin-right: 5px;
+    }
+  }
+  span.info {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 38px;
+  }
+  span.badge {
+    background: #35ba9b;
+    min-width: 50px;
+    margin: 0px auto 0px auto;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 5px 7px;
+    color: #fff;
+    &.red {
+      background-color: #ec3942;
+    }
+    .arrow-up {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #fff;
+      margin: 3px 5px 0px 0px;
+      float: left;
+    }
+  }
+}
+#musics-table {
+  tr {
+    line-height: 40px;
+    font-size: 12px;
+  }
+  thead th {
+    border-bottom: none !important;
+    border-top: none !important;
+    height: 65px !important;
+    vertical-align: top;
+  }
+  tbody tr:first-child {
+    border-top: none !important;
+  }
+}
+
+.container-pagination {
+  margin: 50px auto;
+}
+
+.pagination {
+  font-size: 12px;
+  font-weight: bolder;
+
+  .page-link {
+    border-color: transparent;
+    background: transparent;
+    border-radius: 37px;
+    padding: 3px 8px;
+    color: #666;
   }
 
-#highlight-bar{
-    height: 70px;
-    background-color: $color-highlight;
-    padding: 15px;
-    .icon-logo{
-        float: left;
-    }
-    .icon-hangloose{
-        float: right;
-    }
+  .page-item.active .page-link {
+    background-color: #36aad6;
+  }
+  .page-item.disabled .page-link {
+    border-color: transparent;
+    background: transparent;
+  }
 }
 
-.title{
-    font-size: 26px;
-    margin: 30px 0px;
+@media (max-width: 576px) {
+  .container {
+    padding: 0px 30px;
+  }
+  #highlight-bar {
+    padding: 10px 0px;
+  }
+  .card-title {
+    font-size: 22px !important;
+    img {
+      width: 25px;
+      height: auto;
+    }
+  }
+  span.badge {
+    font-size: 18px !important;
+  }
 }
-
-.card{
-    min-height: 188px;
-    border-radius: 10px;
-    padding: 18px 30px;
-    .card-title{
-        font-size: 14px;
-        img{
-            margin-right: 5px;
-        }
-    }
-    span.info{
-        display: block;
-        margin-top: 15px;
-        text-align: center;
-        font-size: 38px;
-    }
-    span.badge{
-        background: #35ba9b;
-        min-width: 50px;
-        margin: 0px auto 0px auto;
-        border-radius: 10px;
-        font-size: 12px;
-        padding: 5px 7px;
-        color: #fff;
-        &.red{
-            background-color: #ec3942;;
-        }
-        .arrow-up {
-            width: 0; 
-            height: 0; 
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;                
-            border-bottom: 5px solid #fff;
-            margin: 3px 5px 0px 0px;
-            float: left;
-          }
-    }
-}
-
-@media (max-width: 576px) { 
-    .container{
-        padding: 0px 30px;
-    }
-    #highlight-bar {
-        padding: 10px 0px;
-    }
-    .card-title{
-        font-size: 22px !important;
-        img{
-            width: 25px;
-            height: auto;
-        }
-    }
-    span.badge{
-        font-size: 18px !important;
-    }
- }

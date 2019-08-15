@@ -1,5 +1,11 @@
 <template>
-  <div>{{ msg }}</div>
+  <div>
+    <div class="row">
+      <div class="col xs-12 bg-white">
+
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -8,7 +14,7 @@ export default {
   name: "Charts",
   data() {
     return {
-      msg: "Charts"
+      
     };
   },
   methods: {
