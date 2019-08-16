@@ -30,6 +30,7 @@
 import Cards from "./components/Cards.vue";
 import Charts from "./components/Charts.vue";
 import List from "./components/List.vue";
+import APIService from "./services/APIService";
 
 export default {
   name: "app",
@@ -37,6 +38,13 @@ export default {
     Cards,
     Charts,
     List
+  },
+  mounted() {
+    //APIService.getCards()
+
+    APIService.getCharts().then(data => {
+      this.$store.commit("SET_LIST", data);      
+    });
   }
 };
 </script>

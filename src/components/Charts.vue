@@ -1,34 +1,88 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col xs-12 bg-white">
-
-      </div>
-    </div>
-  </div>
+  <div id="container-charts">charts</div>
 </template>
 
 <script>
-import APIService from "../services/APIService";
+import { mapState } from "vuex";
+import Highcharts from "highcharts";
+
 export default {
   name: "Charts",
-  data() {
-    return {
-      
-    };
-  },
-  methods: {
-    getCharts() {
-      return APIService.getCharts().then(response => {
-        /* eslint-disable no-console */
-        console.table(response);
-      });
+  computed: mapState({
+    list: state => state.list
+  }),
+  watch: {
+    list() {
+      this.dataShource();
     }
   },
-  created() {
-    this.getCharts();
+  methods: {
+    dataShource() {
+      const hours_quantity = this.list.hours_quantity;
+      this.setUp(hours_quantity);
+    },
+
+    setUp(hours_quantity) {
+      /* eslint-disable no-console */
+      console.log(hours_quantity);
+
+      Highcharts.chart("container-charts", {
+        chart: {
+          type: "line"
+        },
+        title: {
+          text: "Monthly Average Temperature"
+        },
+        subtitle: {
+          text: "Source: WorldClimate.com"
+        },
+        xAxis: {
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ]
+        },
+        yAxis: {
+          title: {
+            text: "Temperature (°C)"
+          }
+        },
+        plotOptions: {
+          line: {
+            dataLabels: {
+              enabled: true
+            },
+            enableMouseTracking: false
+          }
+        },
+        series: [
+          {
+            name: "Tokyo",
+            data: hours_quantity.quantity
+          },
+          {
+            name: "London",
+            data: hours_quantity.hours
+          }
+        ]
+      });
+
+      /* eslint-disable no-console */
+      console.log("aaaa");
+    }
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+</style>
