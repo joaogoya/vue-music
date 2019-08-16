@@ -5,11 +5,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    list: []
+    charts: [],
+    cards: [],
+    musics: []
   },
   mutations: {
-    SET_LIST(state, obj) {
-      state.list = obj;
+    GET_CHARTS(state, obj) {
+      state.charts = obj;
+    },
+    GET_CARDS(state, obj) {
+      state.cards = obj;
+    },
+    GET_MUSICS(state, obj) {
+      state.musics = obj;
     }
   }
 });

@@ -16,6 +16,7 @@
       <h2 class="title">Overview</h2>
       <Cards></Cards>
       <charts></charts>
+      <h2 class="title">Musicas</h2>
       <List></List>
     </div>
     <div id="highlight-bar">
@@ -40,11 +41,28 @@ export default {
     List
   },
   mounted() {
-    //APIService.getCards()
+    this.getCards();
+    this.getCharts();
+    this.getMusics();
+  },
+  methods: {
+    getCharts() {
+      APIService.getCharts().then(data => {
+        this.$store.commit("GET_CHARTS", data);
+      });
+    },
 
-    APIService.getCharts().then(data => {
-      this.$store.commit("SET_LIST", data);      
-    });
+    getCards() {
+      APIService.getCards().then(data => {
+        this.$store.commit("GET_CARDS", data);
+      });
+    },
+
+    getMusics() {
+      APIService.getMusics().then(data => {
+        this.$store.commit("GET_MUSICS", data);
+      });
+    }
   }
 };
 </script>

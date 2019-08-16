@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import APIService from "../services/APIService";
+import { mapState } from "vuex";
+
 export default {
   name: "List",
   data() {
@@ -45,22 +46,22 @@ export default {
       currentPage: 1
     };
   },
-  methods: {
-    getList() {
-      return APIService.getList().then(response => {
-        /* eslint-disable no-console */
-        this.musics = response.musics;
-        console.log("list");
-        console.log(response);
-      });
-    }
-  },
-  created() {
-    this.getList();
-  },
   computed: {
+    ...mapState({
+      storedMusics: state => state.musics
+    }),
     rows() {
       return this.musics.length;
+    }
+  },
+  watch: {
+    storedMusics() {
+      this.getMusics();
+    }
+  },
+  methods: {
+    getMusics() {
+      this.musics = this.storedMusics.musics;
     }
   }
 };

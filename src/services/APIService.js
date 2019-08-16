@@ -10,7 +10,7 @@ export default {
       .get("https://pmweb-dev.github.io/hoursQuantity.json")
       .then(response => response.data);
   },
-  getList() {
+  getMusics() {
     return axios
       .get("https://pmweb-dev.github.io/musics.json")
       .then(response => response.data);

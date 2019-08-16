@@ -1,5 +1,11 @@
 <template>
-  <div id="container-charts">charts</div>
+  <div>
+    <div class="row">
+      <div class="col-sm-12 bg-white">
+        <div id="container-charts"></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -9,16 +15,16 @@ import Highcharts from "highcharts";
 export default {
   name: "Charts",
   computed: mapState({
-    list: state => state.list
+    charts: state => state.charts
   }),
   watch: {
-    list() {
+    charts() {
       this.dataShource();
     }
   },
   methods: {
     dataShource() {
-      const hours_quantity = this.list.hours_quantity;
+      const hours_quantity = this.charts.hours_quantity;
       this.setUp(hours_quantity);
     },
 
@@ -31,10 +37,10 @@ export default {
           type: "line"
         },
         title: {
-          text: "Monthly Average Temperature"
+          text: "Horas de música vs quntidade de bandas"
         },
         subtitle: {
-          text: "Source: WorldClimate.com"
+          text: ""
         },
         xAxis: {
           categories: [
@@ -54,7 +60,7 @@ export default {
         },
         yAxis: {
           title: {
-            text: "Temperature (°C)"
+            text: ""
           }
         },
         plotOptions: {
@@ -67,11 +73,11 @@ export default {
         },
         series: [
           {
-            name: "Tokyo",
+            name: "Horas de música",
             data: hours_quantity.quantity
           },
           {
-            name: "London",
+            name: "Quantidade de bandas",
             data: hours_quantity.hours
           }
         ]

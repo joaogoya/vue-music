@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import APIService from "../services/APIService";
+import { mapState } from "vuex";
 export default {
   name: "Cards",
   data() {
@@ -49,18 +49,21 @@ export default {
       cardThree: {}
     };
   },
-  methods: {
-    getCards() {
-      return APIService.getCards().then(response => {
-        this.cardOne = response.cards.hours_music;
-        this.cardTwo = response.cards.quantity_bands;
-        this.cardThree = response.cards.lost_artists;
-      });
+  computed: mapState({
+    storedCards: state => state.cards
+  }),
+  watch: {
+    storedCards() {
+      this.getCards()
     }
   },
-  created() {
-    this.getCards();
-  }
+  methods: {
+    getCards() {
+        this.cardOne = this.storedCards.cards.hours_music;
+        this.cardTwo = this.storedCards.cards.quantity_bands;
+        this.cardThree = this.storedCards.cards.lost_artists;
+    }
+  },
 };
 </script>
 
